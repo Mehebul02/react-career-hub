@@ -9,19 +9,28 @@ import {
 import Root from './componenets/root/Root.jsx';
 import Home from './home/Home.jsx';
 import Footer from './footer/Footer.jsx';
+import Applied from './applied/Applied.jsx';
+import Statistics from './Statistics/Statistics.jsx';
+import ErrorPage from './errorPage/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',
         element:<Home></Home>
       },
       {
-        path:'/',
-        element:<Footer></Footer>
-      }
+        path:'/statistics',
+        element:<Statistics></Statistics>
+      },
+     {
+      path:'/applied',
+      element:<Applied></Applied>
+     }
+      
     ]
   },
 ]);
