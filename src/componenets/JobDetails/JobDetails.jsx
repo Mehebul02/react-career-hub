@@ -2,13 +2,15 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { CiDollar } from "react-icons/ci";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../utility/localStorage";
 const JobDetails =()=>{
     const jobs =useLoaderData()
     const {id} = useParams()
     const jobint =parseInt(id) 
     const job =jobs.find(job => job.id ==jobint)
-    console.log(job,id)
+    console.log(job)
     const handleApplyJob=()=>{
+        saveJobApplication(jobint)
         toast('You have a applied Successfully')
     }
     return(

@@ -32,7 +32,8 @@ import JobDetails from './componenets/JobDetails/JobDetails.jsx';
                         },
                         {
                                  path:'/applied',
-                                element:<Applied></Applied>
+                                element:<Applied></Applied>,
+                                loader: () => fetch('../jobs.json')
                                },
                                {
                                 path:'/job/:id',
