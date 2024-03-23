@@ -2,38 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// }from "react-router-dom";
-// // import Root from './componenets/root/Root.jsx';
-// // import Home from './home/Home.jsx';
-// // import Applied from './applied/Applied.jsx';
-// // import Statistics from './Statistics/Statistics.jsx';
-// import ErrorPage from './errorPage/ErrorPage.jsx';
-
-// const router = createBrowserRouter([
-//   {
-//    path:'/',
-//    element:<Root
-//     errorElement:<ErrorPage></ErrorPage>,
-//     children:[
-//       {
-//         path:'/',
-//         element:<Home></Home>
-//       },
-//       {
-//         path:'/statistics',
-//         element:<Statistics></Statistics>
-//       },
-//      {
-//       path:'/applied',
-//       element:<Applied></Applied>
-//      }
-      
-//     ]
-//   },
-// ]);
  import {
     createBrowserRouter,
     RouterProvider,
@@ -43,6 +11,7 @@ import ErrorPage from './componenets/errorPage/ErrorPage.jsx';
 import Home from './componenets/home/Home.jsx';
 import Statistics from './componenets/Statistics/Statistics.jsx';
 import Applied from './componenets/applied/Applied.jsx';
+import JobDetails from './componenets/JobDetails/JobDetails.jsx';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -54,12 +23,22 @@ import Applied from './componenets/applied/Applied.jsx';
                 element:<Home></Home>
                 },
                 {
+                  path:'/jobs'
+
+                },
+                {
                           path:'/statistics',
                           element:<Statistics></Statistics>
                         },
                         {
                                  path:'/applied',
                                 element:<Applied></Applied>
+                               },
+                               {
+                                path:'/job/:id',
+                                element:<JobDetails></JobDetails>,
+                                loader: () => fetch('../jobs.json')
+                                
                                }
       ]
       
